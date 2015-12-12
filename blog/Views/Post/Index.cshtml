@@ -1,0 +1,13 @@
+﻿@using blog.Models;
+@model IEnumerable<Post>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@foreach (Post post in Model)
+{
+    @post.Title<br />
+    
+}
+    

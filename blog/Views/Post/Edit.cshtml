@@ -1,0 +1,19 @@
+﻿@model blog.Models.Post
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<form action="@Href("~/Posts/Update")" method="post" id="postForm">
+@if (Model.ID != -1)
+{
+    <input type="hidden" name="id" value="@Model.ID" />    
+}
+
+@{ DateTime dateTime = Model.DateTime.Year > 2000 ? Model.DateTime : DateTime.Now; }
+<input type="tes" name="dateTime" value="@dateTime" /> Дата<br /><br />
+<input type="text" name="title" value="@Model.Title" /> Заголовок<br /><br />
+<input type="text" name="tags" value="@ViewBag.Tags" /> Теги<br /><br />
+<textarea name="body" rows="20" cols="100">@Model.Body</textarea><br /><br />
+<input type="submit" name="submit" value="Submit!" />
+</form>
