@@ -3,6 +3,8 @@
 
 @{
     ViewBag.Title = "Index";
+    bool isPreviousLinkVisible = ViewBag.IsPreviousLinkVisible ?? false;
+    bool isNextLinkVisible = ViewBag.IsNextLinkVisible ?? false;
 }
 
 @foreach (Post post in Model)
@@ -11,3 +13,12 @@
     
 }
     
+@if (isPreviousLinkVisible)
+{
+    <a id="previousLink" href="@Href("~/Post/Index/" + (ViewBag.PageNumber - 1))">&lt; Предыдущая страница </a>
+}
+
+@if (isNextLinkVisible)
+{
+    <a id="nextLink" href="@Href("~/Post/Index/" + (ViewBag.PageNumber + 1))"> Следующая страница &gt;</a>
+}

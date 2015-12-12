@@ -11,16 +11,21 @@ namespace blog.Controllers
     public class PostController : Controller
     {
         private BlogModel model = new BlogModel();
+        private const int PostsPerPage = 2; //Колличество постов на страницу
 
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
+            int pageNumber = id ?? 0;
             IEnumerable<Post> posts =
-                from post in model.Posts
+                (from post in model.Posts
                 where post.DateTime < DateTime.Now
                 orderby post.DateTime descending
-                select post;
+                select post).Skip(pageNumber * PostsPerPage).Take(PostsPerPage + 1);
+            ViewBag.IsPreviousLinkVisible = pageNumber > 0;
+            ViewBag.IsNextLinkVisible = posts.Count() > PostsPerPage;
+            ViewBag.PageNumber = pageNumber;
             ViewBag.IsAdmin = IsAdmin;
-            return View(posts);
+            return View(posts.Take(PostsPerPage));
         }
 
         [ValidateInput(false)] //Отключили валидацию даты, времени
