@@ -5,11 +5,12 @@
     ViewBag.Title = "Index";
     bool isPreviousLinkVisible = ViewBag.IsPreviousLinkVisible ?? false;
     bool isNextLinkVisible = ViewBag.IsNextLinkVisible ?? false;
+    bool isAdmin = ViewBag.isAdmin ?? false;
 }
 
 @foreach (Post post in Model)
 {
-    @post.Title<br />
+    @PostHelper.Render(post, Html, isAdmin, false)
     
 }
     

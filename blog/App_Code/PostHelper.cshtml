@@ -2,5 +2,20 @@
 
 @helper Render(Post post, System.Web.Mvc.HtmlHelper html, bool isAdmin, bool showComments)
 {
-    
+    <div class="postTitle"><a href="@Href("~/Post/Details/" + post.ID)">@post.Title</a></div>
+    <div class="postContainer">
+        <div class="postTabs">
+            <div class="DateTab">
+                <div class="month">@post.DateTime.ToString("MMM").ToUpper()</div>
+                <div class="day">@post.DateTime.ToString("dd").ToUpper()</div>
+            </div>
+        </div>
+        <div class="postContent">
+            <div class="postBody">@html.Raw(post.Body)</div>
+            <div class="linkList">
+                @{ string url = "https://github.com/egorcalm/vs-git-integration-blog/commits/master" + post.ID; }
+                 
+            </div>
+        </div>
+    </div>
 }

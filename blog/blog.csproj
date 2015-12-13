@@ -132,7 +132,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Blog.css" />
+    <Content Include="Content\Img\fon.png" />
     <Content Include="Global.asax" />
+    <Content Include="Models\BlogModel.edmx.sql" />
     <Content Include="Scripts\jQuery.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -184,6 +186,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\PostHelper.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Post\Details.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

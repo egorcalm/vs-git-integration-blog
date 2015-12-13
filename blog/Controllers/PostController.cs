@@ -28,6 +28,15 @@ namespace blog.Controllers
             return View(posts.Take(PostsPerPage));
         }
 
+
+
+        public ActionResult Details(int id)
+        {
+            Post post = GetPost(id);
+            ViewBag.IsAdmin = IsAdmin;
+            return View(post);
+        }
+
         [ValidateInput(false)] //Отключили валидацию даты, времени
         public ActionResult Update(int? id, string title, string body, DateTime dateTime, string tags)
         {

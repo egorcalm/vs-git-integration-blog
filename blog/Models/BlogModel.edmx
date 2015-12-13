@@ -4,106 +4,106 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище Blog.Models" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="Хранилище BlogModelsContainer">
-          <EntitySet Name="Administrators" EntityType="Хранилище Blog.Models.Administrators" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Comments" EntityType="Хранилище Blog.Models.Comments" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Posts" EntityType="Хранилище Blog.Models.Posts" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="PostsTags" EntityType="Хранилище Blog.Models.PostsTags" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Tags" EntityType="Хранилище Blog.Models.Tags" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_Comments_Posts" Association="Хранилище Blog.Models.FK_Comments_Posts">
-            <End Role="Posts" EntitySet="Posts" />
-            <End Role="Comments" EntitySet="Comments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PostsTags_Posts" Association="Хранилище Blog.Models.FK_PostsTags_Posts">
-            <End Role="Posts" EntitySet="Posts" />
-            <End Role="PostsTags" EntitySet="PostsTags" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PostsTags_Tags" Association="Хранилище Blog.Models.FK_PostsTags_Tags">
-            <End Role="Tags" EntitySet="Tags" />
-            <End Role="PostsTags" EntitySet="PostsTags" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="Administrators">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="128" />
-          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
-        </EntityType>
-        <EntityType Name="Comments">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="PostID" Type="int" Nullable="false" />
-          <Property Name="DateTime" Type="datetime" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="128" />
-          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="128" />
-          <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Posts">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
-          <Property Name="DateTime" Type="datetime" Nullable="false" />
-          <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PostsTags">
-          <Key>
-            <PropertyRef Name="PostID" />
-            <PropertyRef Name="TagID" />
-          </Key>
-          <Property Name="PostID" Type="int" Nullable="false" />
-          <Property Name="TagID" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Tags">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
-        </EntityType>
-        <Association Name="FK_Comments_Posts">
-          <End Role="Posts" Type="Хранилище Blog.Models.Posts" Multiplicity="1" />
-          <End Role="Comments" Type="Хранилище Blog.Models.Comments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Posts">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Comments">
-              <PropertyRef Name="PostID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PostsTags_Posts">
-          <End Role="Posts" Type="Хранилище Blog.Models.Posts" Multiplicity="1" />
-          <End Role="PostsTags" Type="Хранилище Blog.Models.PostsTags" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Posts">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PostsTags">
-              <PropertyRef Name="PostID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PostsTags_Tags">
-          <End Role="Tags" Type="Хранилище Blog.Models.Tags" Multiplicity="1" />
-          <End Role="PostsTags" Type="Хранилище Blog.Models.PostsTags" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tags">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PostsTags">
-              <PropertyRef Name="TagID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="Blog.Models.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="BlogModelsStoreContainer">
+    <EntitySet Name="Administrators" EntityType="Blog.Models.Store.Administrators" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Comments" EntityType="Blog.Models.Store.Comments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Posts" EntityType="Blog.Models.Store.Posts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tags" EntityType="Blog.Models.Store.Tags" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PostsTags" EntityType="Blog.Models.Store.PostsTags" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Comments_Posts" Association="Blog.Models.Store.FK_Comments_Posts">
+      <End Role="Posts" EntitySet="Posts" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PostsTags_Posts" Association="Blog.Models.Store.FK_PostsTags_Posts">
+      <End Role="Posts" EntitySet="Posts" />
+      <End Role="PostsTags" EntitySet="PostsTags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PostsTags_Tags" Association="Blog.Models.Store.FK_PostsTags_Tags">
+      <End Role="Tags" EntitySet="Tags" />
+      <End Role="PostsTags" EntitySet="PostsTags" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Administrators">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostID" Type="int" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Posts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tags">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="PostsTags">
+    <Key>
+      <PropertyRef Name="Posts_ID" />
+      <PropertyRef Name="Tags_ID" />
+    </Key>
+    <Property Name="Posts_ID" Type="int" Nullable="false" />
+    <Property Name="Tags_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Comments_Posts">
+    <End Role="Posts" Type="Blog.Models.Store.Posts" Multiplicity="1" />
+    <End Role="Comments" Type="Blog.Models.Store.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PostsTags_Posts">
+    <End Role="Posts" Type="Blog.Models.Store.Posts" Multiplicity="1" />
+    <End Role="PostsTags" Type="Blog.Models.Store.PostsTags" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PostsTags">
+        <PropertyRef Name="Posts_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PostsTags_Tags">
+    <End Role="PostsTags" Type="Blog.Models.Store.PostsTags" Multiplicity="*" />
+    <End Role="Tags" Type="Blog.Models.Store.Tags" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Tags">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PostsTags">
+        <PropertyRef Name="Tags_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Blog.Models" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -180,58 +180,57 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище BlogModelsContainer" CdmEntityContainer="BlogModel">
-          <EntitySetMapping Name="Administrators">
-            <EntityTypeMapping TypeName="Blog.Models.Administrator">
-              <MappingFragment StoreEntitySet="Administrators">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Comments">
-            <EntityTypeMapping TypeName="Blog.Models.Comment">
-              <MappingFragment StoreEntitySet="Comments">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="PostID" ColumnName="PostID" />
-                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Body" ColumnName="Body" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Posts">
-            <EntityTypeMapping TypeName="Blog.Models.Post">
-              <MappingFragment StoreEntitySet="Posts">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
-                <ScalarProperty Name="Body" ColumnName="Body" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tags">
-            <EntityTypeMapping TypeName="Blog.Models.Tag">
-              <MappingFragment StoreEntitySet="Tags">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="PostsTags" TypeName="Blog.Models.PostsTags" StoreEntitySet="PostsTags">
-            <EndProperty Name="Posts">
-              <ScalarProperty Name="ID" ColumnName="PostID" />
-            </EndProperty>
-            <EndProperty Name="Tags">
-              <ScalarProperty Name="ID" ColumnName="TagID" />
-            </EndProperty>
-          </AssociationSetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BlogModelsStoreContainer" CdmEntityContainer="BlogModel">
+    <EntitySetMapping Name="Administrators">
+      <EntityTypeMapping TypeName="IsTypeOf(Blog.Models.Administrator)">
+        <MappingFragment StoreEntitySet="Administrators">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="IsTypeOf(Blog.Models.Comment)">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="IsTypeOf(Blog.Models.Post)">
+        <MappingFragment StoreEntitySet="Posts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tags">
+      <EntityTypeMapping TypeName="IsTypeOf(Blog.Models.Tag)">
+        <MappingFragment StoreEntitySet="Tags">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PostsTags" TypeName="Blog.Models.PostsTags" StoreEntitySet="PostsTags">
+      <EndProperty Name="Posts">
+        <ScalarProperty Name="ID" ColumnName="Posts_ID" />
+      </EndProperty>
+      <EndProperty Name="Tags">
+        <ScalarProperty Name="ID" ColumnName="Tags_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
