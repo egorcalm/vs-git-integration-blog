@@ -11,7 +11,7 @@ namespace blog.Controllers
     public class PostController : Controller
     {
         private BlogModel model = new BlogModel();
-        private const int PostsPerPage = 2; //Колличество постов на страницу
+        private const int PostsPerPage = 5; //Колличество постов на страницу
 
         public ActionResult Index(int? id)
         {

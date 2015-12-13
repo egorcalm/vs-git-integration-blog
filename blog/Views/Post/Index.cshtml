@@ -16,10 +16,10 @@
     
 @if (isPreviousLinkVisible)
 {
-    <a id="previousLink" href="@Href("~/Post/Index/" + (ViewBag.PageNumber - 1))">&lt; Предыдущая страница </a>
+    <a id="previousLink" href="@Href("~/Post/Index/" + (ViewBag.PageNumber - 1))">&lt; &nbsp &nbsp</a>
 }
 
 @if (isNextLinkVisible)
 {
-    <a id="nextLink" href="@Href("~/Post/Index/" + (ViewBag.PageNumber + 1))"> Следующая страница &gt;</a>
+    <a id="nextLink" href="@Href("~/Post/Index/" + (ViewBag.PageNumber + 1))">&nbsp &nbsp &gt;</a>
 }

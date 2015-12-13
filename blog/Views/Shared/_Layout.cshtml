@@ -7,6 +7,19 @@
 </head>
 
 <body>
-    @RenderBody()
+    <div id="header">
+        <a href="@Href("~/Post/Index/")"><img src="@Href("~/Content/Img/name.png")" /></a>
+    </div>
+    <div id="content">
+        <div id="topSeparator" class="separator"></div>
+        <div id="sidebar"></div>
+        <div id="main">
+            @RenderBody()
+        </div>
+        <div id="bottomSeparator" class="separator"></div>
+    </div>
+    <div id="footer">
+        <div id="copyright"><a href="http://vk.com/egor_calm" target="_blank"><img src="@Href("~/Content/Img/footer.png")" /></a></div>
+    </div>    
 </body>
 </html>

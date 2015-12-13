@@ -1,2 +1,151 @@
 ﻿body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    color: #303030;
+    text-align: center;
+    font-family: OpenSansRegular;
+    font-size: 16px;
+    background-image: url('/content/Img/fon.png');
+
+}
+
+#header
+{
+    padding: 15px;
+}
+
+#footer
+{
+    padding: 15px;
+    color: #808080;
+}
+
+.separator
+{
+    clear: both;
+    height: 0px;
+    width: 1000px;
+    display: block; 
+    margin: 0 auto;
+    background-image: url('/content/Img/separator.png');
+}
+
+#topSeparator
+{
+    margin-bottom: 20px;
+
+}
+
+#bottomSeparator
+{
+    margin-top: 20px;
+
+}
+
+#content
+{
+    background-image: url('/content/Img/fon.png');
+}
+
+img
+{
+    border: 0;
+}
+
+.postTitle
+{
+    margin: auto;
+    text-align: left;
+    width: 600px;
+    padding-bottom:10px;
+
+}
+
+a
+{
+    font-size: 40px;
+    font-family: OpenSansRegular;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.postContainer
+{
+    width: 800px;
+    margin: 0 auto 50px auto;        
+}
+
+.postTabs
+{
+    color: #ffffff;
+    float: left;
+    font-size: 16px;
+}
+
+.DateTab
+{
+    margin-top: 30px;
+    width: 60px;
+    padding: 10px 5px 5px 5px;
+    background: #303030;
+    border-radius: 4px;
+}
+
+.month
+{
+
+}
+
+.day
+{
+    font-size: 2em;
+}
+
+.postContent
+{
+    padding: 40px 80px 40px 80px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.4),inset 0 -2px 6px #f6f4ee;
+    width: 600px;
+    margin-left: 20px;
+    color: #2d2d2d;
+    background-color: #ffffff;
+
+}
+
+.postBody
+{
+    text-align: left;
+    line-height: 1.5em;
+}
+
+.linkList
+{
+    text-align: right;
+}
+
+
+/* font-family: "OpenSansRegular"; */
+@font-face {
+    font-family: "OpenSansRegular";
+    src: url("/content/OpenSansRegular.eot");
+    src: url("/content/OpenSansRegular.eot?#iefix")format("embedded-opentype"),
+    url("/content/OpenSansRegular.woff") format("woff"),
+    url("/content/OpenSansRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+/* font-family: "OpenSansBold"; */
+@font-face {
+    font-family: "OpenSansBold";
+    src: url("/content/OpenSansBold.eot");
+    src: url("/content/OpenSansBold.eot?#iefix")format("embedded-opentype"),
+    url("/content/OpenSansBold.woff") format("woff"),
+    url("/content/OpenSansBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
 }
