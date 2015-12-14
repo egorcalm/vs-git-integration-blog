@@ -71,6 +71,12 @@ a
     font-weight: bold;
 }
 
+    a:hover
+    {
+        color: #60b900;
+        text-decoration: none;
+    }
+
 .postContainer
 {
     width: 800px;

@@ -15,7 +15,7 @@ namespace blog.Controllers
 
         public ActionResult Index(int? id)
         {
-            int pageNumber = id ?? 0;
+            int pageNumber = id ?? 0; 
             IEnumerable<Post> posts =
                 (from post in model.Posts
                 where post.DateTime < DateTime.Now
@@ -27,8 +27,6 @@ namespace blog.Controllers
             ViewBag.IsAdmin = IsAdmin;
             return View(posts.Take(PostsPerPage));
         }
-
-
 
         public ActionResult Details(int id)
         {
